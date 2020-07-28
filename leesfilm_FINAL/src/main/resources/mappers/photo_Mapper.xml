@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyz.leesfilm.photoMapper">
+<!-- Home -->
+   <select id="selectHomeList" resultType="com.xyz.leesfilm.DTO.HomepicDTO">
+      select h_id,h_name from homepic
+   </select>
+   <update id="updateHome" parameterType="com.xyz.leesfilm.DTO.HomepicDTO">
+      update homepic
+      set h_name = #{h_name}
+      where h_id = #{h_Id}
+   </update>
+   <delete id="deleteHome" parameterType="int">
+      delete from homepic where h_id = #{h_Id}
+   </delete>
+
+<!-- Photo -->
+   <insert id="insertPhoto" parameterType="com.xyz.leesfilm.DTO.PhotoDTO">
+    insert into photo(p_Category,p_Name, p_cate_order)
+    values(#{p_Category},#{p_Name}, #{p_cate_order})
+    </insert>
+
+   <select id="selectPhotoList" resultType="com.xyz.leesfilm.DTO.PhotoDTO">
+   select p_id,p_name, p_category, p_cate_order from photo
+   <!-- where p_category='Photo1' or p_category='Photo2' or p_category='Photo3'; -->
+   </select>
+
+   <delete id="deletePhotoCategory"
+      parameterType="com.xyz.leesfilm.DTO.PhotoDTO">
+      delete from photo where p_Category = #{p_Category}
+   </delete>
+
+   <delete id="deletePhoto" parameterType="int">
+      delete from photo where
+      p_id = #{photo_id}
+   </delete>
+
+   <update id="updatePhoto"
+      parameterType="com.xyz.leesfilm.DTO.PhotoDTO">
+      update photo
+      set p_name = #{p_Name}
+      where p_id = #{p_Id}
+   </update>
+
+   <select id="getPhotoCategory" parameterType="int" resultType="string">
+        select p_Category from photo where p_Id = #{id};
+     </select>
+     
+     <update id="downPhotoOrder" parameterType="int">
+        update photo
+        set p_cate_order = p_cate_order - 1
+        where p_cate_order > #{std}
+     </update>
+     <update id="updatePhotoCategory" parameterType="com.xyz.leesfilm.DTO.PhotoDTO">
+        update photo
+        set p_cate_order = #{p_cate_order}
+        where p_Category = #{p_Category}
+     </update>
+     
+     <!-- Films -->
+   <insert id="insertFilms"
+      parameterType="com.xyz.leesfilm.DTO.FilmsDTO">
+      insert into films(f_Category,f_Name)
+      values(#{f_Category},#{f_Name})
+   </insert>
+
+   <select id="selectFilmsList"
+      resultType="com.xyz.leesfilm.DTO.FilmsDTO">
+      select f_id, f_name from films;
+   </select>
+
+   <delete id="deleteFilms" parameterType="int">
+      delete from films where
+      f_id = #{film_id}
+   </delete>
+
+   <update id="updateFilms"
+      parameterType="com.xyz.leesfilm.DTO.FilmsDTO">
+      update films
+      set f_name = #{f_Name}
+      where f_id = #{f_Id}
+   </update>
+
+<!-- Commercial -->
+   <insert id="insertComme" parameterType="com.xyz.leesfilm.DTO.CommeDTO">
+    insert into commercial(c_Category,c_Name, c_cate_order)
+    values(#{c_Category},#{c_Name}, #{c_cate_order})
+     </insert>
+
+   <select id="selectCommeList" resultType="com.xyz.leesfilm.DTO.CommeDTO">
+      select c_id, c_name, c_category, c_cate_order from commercial;
+     </select>
+
+   <delete id="deleteCommeCategory"
+      parameterType="com.xyz.leesfilm.DTO.CommeDTO">
+      delete from commercial where c_Category = #{c_Category}
+   </delete>
+
+   <delete id="deleteComme" parameterType="int">
+      delete from commercial where c_id = #{c_Id}
+   </delete>
+
+   <update id="updateComme"
+      parameterType="com.xyz.leesfilm.DTO.FilmsDTO">
+      update commercial
+      set c_name = #{c_Name}
+      where c_id = #{c_Id}
+   </update>
+   
+   <update id="downCommeOrder" parameterType="int">
+        update commercial
+        set c_cate_order = c_cate_order - 1
+        where c_cate_order > #{std}
+     </update>
+<!-- category table -->
+   <select id="getCommeCategory" parameterType="int" resultType="string">
+           select c_Category from commercial where c_Id = #{id};
+   </select>
+     <update id="updateCommeCategory" parameterType="com.xyz.leesfilm.DTO.CommeDTO">
+        update commercial
+        set c_cate_order = #{c_cate_order}
+        where c_Category = #{c_Category};
+     </update>
+     
+     <!-- category table -->
+   <insert id="insertCategory" parameterType="com.xyz.leesfilm.DTO.CategoryDTO">
+     insert into category (cate_name, cate_num, cate_order, cate_type)
+     values (#{cate_name}, #{cate_num}, #{cate_order}, #{cate_type})
+  </insert>
+  
+  <select id="count" parameterType="string" resultType="int">
+     select count(*) from category where cate_type = #{type};
+  </select>
+ 
+ <select id="getOrder" parameterType="string" resultType="int">
+    select cate_order from category where cate_name = #{name};
+ </select>
+ 
+ <delete id="deleteCategory" parameterType="com.xyz.leesfilm.DTO.CategoryDTO">
+    delete from category where cate_name = #{cate_name} and cate_type = #{cate_type};
+ </delete>
+ 
+ <select id="getCateNum" parameterType="String" resultType="int">
+    select cate_num from category where cate_name = #{name};
+ </select>
+
+     <update id="updateCateNum" parameterType="com.xyz.leesfilm.DTO.CategoryDTO">
+     update category
+     set cate_num = #{cate_num}
+     where cate_name = #{cate_name} and cate_type = #{cate_type}
+     </update>
+     
+     <update id="downCateOrder" parameterType="com.xyz.leesfilm.DTO.CategoryDTO">
+        update category
+        set cate_order = cate_order - 1
+        where cate_order > #{cate_order} and cate_type = #{cate_type}
+     </update>
+     
+     <update id="updateCateOrder" parameterType="com.xyz.leesfilm.DTO.CategoryDTO">
+        update category
+        set cate_order = #{cate_order}
+        where cate_name = #{cate_name} and cate_type = #{cate_type}
+     </update>
+</mapper>
