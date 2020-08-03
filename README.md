@@ -12,7 +12,7 @@ Development Environment
 
  ##### 1. Initial Screen
 
-![first](https://user-images.githubusercontent.com/52600701/89150448-89648400-d599-11ea-9dad-ca2a3e11ba6c.PNG)
+![first](https://user-images.githubusercontent.com/52600701/89151613-58398300-d59c-11ea-8a4f-0ea2e3d20b06.PNG)
 
  ##### 2. Login admin by Contact Page
 
@@ -20,10 +20,8 @@ Development Environment
   
   > 그렇지 않을 경우, name 으로 admin 의 메일로 메일 전송 : contact 수행
   
-![contact](https://user-images.githubusercontent.com/52600701/89150454-8cf80b00-d599-11ea-9d52-717eefb3a0eb.PNG)
+![contact](https://user-images.githubusercontent.com/52600701/89151618-596ab000-d59c-11ea-9b3e-03b54f6195d1.PNG)
 
  ##### 3. Admin 
 
-![admin](https://user-images.githubusercontent.com/52600701/89150450-8a95b100-d599-11ea-867f-fe0d2aac13d2.PNG)
-
-
+![admin](https://user-images.githubusercontent.com/52600701/89151616-596ab000-d59c-11ea-8335-dda94618a371.PNG)
