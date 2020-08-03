@@ -23,5 +23,11 @@ Development Environment
 ![contact](https://user-images.githubusercontent.com/52600701/89151618-596ab000-d59c-11ea-9b3e-03b54f6195d1.PNG)
 
  ##### 3. Admin 
+ 
+ > 사진 / 영상 업로드 
+ 
+ > 사진 / 영상 카테고리 순서 변경
+ 
+ > 로그아웃 
 
 ![admin](https://user-images.githubusercontent.com/52600701/89151616-596ab000-d59c-11ea-8335-dda94618a371.PNG)
