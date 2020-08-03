@@ -17,6 +17,7 @@ Development Environment
  ##### 2. Login admin by Contact Page
 
   > 정해진 admin 의 name / email / password 의 경우, 관리자로 로그인
+  
   > 그렇지 않을 경우, name 으로 admin 의 메일로 메일 전송 : contact 수행
   
 ![contact](https://user-images.githubusercontent.com/52600701/89150454-8cf80b00-d599-11ea-9d52-717eefb3a0eb.PNG)
